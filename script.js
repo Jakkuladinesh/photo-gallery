@@ -63,16 +63,15 @@ document.getElementById('getPhotos').addEventListener('click', function () {
     const count = parseInt(document.getElementById('photoCount').value);
     const photoGallery = document.getElementById('photoGallery');
 
-    // Clear the gallery
+    
     photoGallery.innerHTML = '';
 
-    // Ensure we get unique images
+
     const usedIndices = new Set();
 
     for (let i = 0; i < count; i++) {
         let randomIndex;
 
-        // Keep generating until a unique index is found
         do {
             randomIndex = Math.floor(Math.random() * photoData.length);
         } while (usedIndices.has(randomIndex));
@@ -81,20 +80,18 @@ document.getElementById('getPhotos').addEventListener('click', function () {
 
         const photo = photoData[randomIndex];
 
-        // Create image element
         const img = document.createElement('img');
         img.src = photo.image_url;
         img.alt = photo.title;
 
-        // Create title element
+ 
         const h1 = document.createElement('h1');
         h1.textContent = photo.title;
 
-        // Create category element
         const h2 = document.createElement('h2');
         h2.textContent = `Category: ${photo.category}`;
 
-        // Append elements to the gallery
+    
         photoGallery.appendChild(h1);
         photoGallery.appendChild(h2);
         photoGallery.appendChild(img);
